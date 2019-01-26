@@ -37,7 +37,7 @@ for (var key in sampleData){
     // console.log('➡️Running test case', count, `(${key})`)
     const input = sampleData[key]['.in']
     const expectedOutput = sampleData[key]['.ans']
-    const child = spawn('node', [problemPath])
+    const child = spawn('node', [problemPath]) // TODO: replace hard coded node with other options...
     // console.log('   Giving input', input)
     child.stdin.write(input)
     child.stdin.end()
