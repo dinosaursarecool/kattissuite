@@ -11,8 +11,8 @@ python 3, nodejs,
 **problem**: Kattis Problem ID
 
 ### Commands
-**npm run init _\<problem\>_** fetches samples for the given problem and creates a new code file for that problem by copying defaultFileTemplate.
-Replace defaultFileTemplate.<your language> as you please.
+**npm run init _\<problem\>_** fetches samples for the given problem and creates a new code file for that problem by copying **defaultFileTemplate**.
+Replace **defaultFileTemplate.\<your language\>** as you please.
 
 **npm run test _\<problem\>_** runs the sample tests for the given problem
 
