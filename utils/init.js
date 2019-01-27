@@ -13,5 +13,5 @@ const templatePath = path.join(__dirname, template)
 getSampleData(problem)
 
 fs.copyFileSync(templatePath, problemPath, {
-    flag: 'wx'
+	flag: 'wx'
 })

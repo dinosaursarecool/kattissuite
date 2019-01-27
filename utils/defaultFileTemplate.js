@@ -1,8 +1,8 @@
 const readline = require('readline')
 
 const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
+	input: process.stdin,
+	output: process.stdout
 })
 
 
@@ -10,7 +10,7 @@ var input = []
 rl.on('line', (line) => input.push(line))
 
 rl.on('close', () => {
-    // Problem here
+	// Problem here
 
-    process.exit()
+	process.exit()
 })
