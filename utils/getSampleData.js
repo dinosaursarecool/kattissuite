@@ -1,8 +1,7 @@
-var fs = require('fs')
-var AdmZip = require('adm-zip')
-var request = require('request')
+const fs = require('fs')
+const AdmZip = require('adm-zip')
+const request = require('request')
 const path = require('path')
-
 
 const getSampleData = (problem) => {
 	const samplePath = path.join(__dirname, '..', 'SampleData', problem)
@@ -10,16 +9,11 @@ const getSampleData = (problem) => {
 
 	const url = `https://open.kattis.com/problems/${problem}/file/statement/samples.zip`
 
-	request.get({
-		url,
-		encoding: null
-	}, (err, res, body) => {
-		var zip = new AdmZip(body)
-		var zipEntries = zip.getEntries()
+	request.get({ url, encoding: null }, (err, res, body) => {
+		const zip = new AdmZip(body)
+		const zipEntries = zip.getEntries()
 
-		zipEntries.forEach((entry) =>
-			fs.writeFileSync(path.join(samplePath, entry.entryName), zip.readFile(entry))
-		)
+		zipEntries.forEach((entry) => fs.writeFileSync(path.join(samplePath, entry.entryName), zip.readFile(entry)))
 	})
 }
 
