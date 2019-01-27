@@ -1,6 +1,6 @@
 const getSampleData = require('./getSampleData')
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs')
+const path = require('path')
 const DEFAULT_FILE_TEMPLATE_NAME = 'defaultFileTemplate'
 
 const problem = process.argv[2]

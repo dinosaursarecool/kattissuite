@@ -8,7 +8,10 @@
     "node-fetch": "^2.3.0",
     "request": "^2.88.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.16.1"
+  },
   "scripts": {
     "test": "node utils/testHelper",
     "submit": "node utils/submitAndPoll",

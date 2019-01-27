@@ -1,7 +1,7 @@
-const fetch = require("node-fetch");
+const fetch = require("node-fetch")
 const {
     spawn
-} = require('child_process');
+} = require('child_process')
 const {
     TEST_STATUS,
     STATUS
@@ -23,14 +23,11 @@ const getSubmission = async (submissionId, cookie) =>
         "method": "GET",
         "mode": "cors"
     }).then(res => res.json()).then(json => {
-        // console.log('json', json)
         var str = json.component
         var testCases = str.split('Test case ').slice(1)
         var parsedTestCases = testCases.map(x => x.split('">')[0].split(': ')[1])
 
         var prettyOutput = parsedTestCases.map(x => `[ ${TEST_STATUS[x]}  ]`).join('')
-        //✅❌❓
-        // console.log(prettyOutput)
         return {
             prettyOutput,
             status: json.status_id
@@ -42,25 +39,19 @@ const sleep = (ms) => {
 }
 
 const poll = async submissionId => {
-    // console.log('starting poll for', submissionId)
     const cookie = await getCookie()
-    //3709727 3709826
-    // await bleh('3709826', cookie) // Accepted
 
     var prevStatus = STATUS.RUNNING
     while (prevStatus === STATUS.RUNNING) {
         const {
             prettyOutput,
             status
-        } = await getSubmission(submissionId, cookie) // Wrong Answer
+        } = await getSubmission(submissionId, cookie)
         prevStatus = status
-        // console.log('Current status:', STATUS[status], status)
         process.stdout.write('\033c');
         console.log(prettyOutput)
         await sleep(1000)
     }
 }
-
-// poll()
 
 module.exports = poll

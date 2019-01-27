@@ -14,4 +14,7 @@ const TEST_STATUS = {
     NOT_CHECKED: '❔',
 }
 
-module.exports = {STATUS, TEST_STATUS}
+module.exports = {
+    STATUS,
+    TEST_STATUS
+}

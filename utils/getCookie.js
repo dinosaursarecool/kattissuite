@@ -1,7 +1,7 @@
-const path = require('path');
+const path = require('path')
 const {
     spawn
-} = require('child_process');
+} = require('child_process')
 
 const getCookie = async () => {
     const loginPath = path.join(__dirname, 'login.py')

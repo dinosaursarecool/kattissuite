@@ -1,6 +1,6 @@
-var fs = require('fs');
-var AdmZip = require('adm-zip');
-var request = require('request');
+var fs = require('fs')
+var AdmZip = require('adm-zip')
+var request = require('request')
 const path = require('path')
 
 
@@ -10,17 +10,17 @@ const getSampleData = (problem) => {
 
     const url = `https://open.kattis.com/problems/${problem}/file/statement/samples.zip`
 
-    request.get({url, encoding: null}, (err, res, body) => {
-        var zip = new AdmZip(body);
-        var zipEntries = zip.getEntries();
-        // console.log(zipEntries.length);
-      
-        zipEntries.forEach((entry) => {
-            // console.log('entry:', entry.entryName)
-            // console.log(zip.readAsText(entry));
+    request.get({
+        url,
+        encoding: null
+    }, (err, res, body) => {
+        var zip = new AdmZip(body)
+        var zipEntries = zip.getEntries()
+
+        zipEntries.forEach((entry) =>
             fs.writeFileSync(path.join(samplePath, entry.entryName), zip.readFile(entry))
-        });
-      });
+        )
+    })
 }
 
 module.exports = getSampleData
