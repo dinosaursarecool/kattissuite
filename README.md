@@ -1,5 +1,8 @@
 # kattissuite for https://open.kattis.com/
 
+### Description
+A helper suite to make it easier to run, test, and submit problems to Kattis
+
 ### Requirements
 python 3, nodejs,
 .kattisrc (download from https://open.kattis.com/download/kattisrc and add it to the project root)
