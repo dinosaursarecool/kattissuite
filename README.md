@@ -13,6 +13,25 @@ python 3, nodejs,
 ### Commands
 **npm run init _\<problem\>_** fetches samples for the given problem and creates a new code file for that problem by copying **defaultFileTemplate**.
 Replace **defaultFileTemplate.\<your language\>** as you please.
+#### Supported languages for defaultFileTemplate:
+    '.c': 'C',
+    '.c#': 'C#',
+    '.c++': 'C++',
+    '.cc': 'C++',
+    '.cpp': 'C++',
+    '.cs': 'C#',
+    '.cxx': 'C++',
+    '.go': 'Go',
+    '.h': 'C++',
+    '.hs': 'Haskell',
+    '.java': 'Java',
+    '.js': 'JavaScript (Node.js)',
+    '.m': 'Objective-C',
+    '.pas': 'Pascal',
+    '.php': 'PHP',
+    '.pl': 'Prolog',
+    '.py': 'Python',
+    '.rb': 'Ruby'
 
 **npm run test _\<problem\>_** runs the sample tests for the given problem
 
