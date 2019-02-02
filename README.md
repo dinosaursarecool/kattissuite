@@ -4,9 +4,9 @@
 A helper suite to make it easier to run, test, and submit problems to Kattis
 
 ### Requirements
-[python 3](https://www.python.org/)__
-[nodejs](https://nodejs.org/en/download/)__
-.kattisrc (download from https://open.kattis.com/download/kattisrc and add it to the project root)
+* [python 3](https://www.python.org/)
+* [nodejs](https://nodejs.org/en/download/)
+* .kattisrc (download from https://open.kattis.com/download/kattisrc and add it to the project root)
 
 ### Definitions
 **problem**: Kattis Problem ID
