@@ -4,9 +4,9 @@
 A helper suite to make it easier to run, test, and submit problems to Kattis
 
 ### Requirements
-[python 3](https://www.python.org/)
-[nodejs](https://nodejs.org/en/download/)
-.kattisrc (download from https://open.kattis.com/download/kattisrc and add it to the project root)
+* [python 3](https://www.python.org/)
+* [nodejs](https://nodejs.org/en/download/)
+* .kattisrc (download from https://open.kattis.com/download/kattisrc and add it to the project root)
 
 ### Definitions
 **problem**: Kattis Problem ID
@@ -37,7 +37,7 @@ These files are located at ```./utils/templates```. Simply modify these to your 
 ### Add language
 * Open up ```./languages.json```
 * It should look something like this
-```
+```javascript
 {
     "c": {
         "fileExt": "c",
