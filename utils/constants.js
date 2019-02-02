@@ -14,6 +14,8 @@ const TEST_STATUS = {
     WRONG_ANSWER: '❌',
     'not checked': '❔',
     NOT_CHECKED: '❔',
+    RUN_TIME_ERROR: '⚠️',
+    'Run Time Error': '⚠️'
 }
 
 const PATHS = {
