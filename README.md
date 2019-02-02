@@ -37,7 +37,7 @@ These files are located at ```./utils/templates```. Simply modify these to your 
 ### Add language
 * Open up ```./languages.json```
 * It should look something like this
-```
+```javascript
 {
     "c": {
         "fileExt": "c",
