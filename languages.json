@@ -1,0 +1,22 @@
+{
+    "c": {
+        "fileExt": "c",
+        "command": "./problem.exe",
+        "compiler": {
+            "command": "gcc",
+            "args": [
+                "-g",
+                "${problemFile}",
+                "-o",
+                "${workspaceFolder}/problem.exe"
+            ]
+        }
+    },
+    "node": {
+        "fileExt": "js",
+        "command": "node",
+        "args": [
+            "${problemFile}"
+        ]
+    }
+}

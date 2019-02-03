@@ -7,7 +7,7 @@ const getCookie = async () => {
 
 	var output = ''
 	for await (const data of child.stdout) output = output + data.toString()
-    
+
 	const body = JSON.parse(output.split('\'').join('"'))
 	return `EduSiteCookie=${body.EduSiteCookie}; __cfduid=${body.__cfduid};`
 }
