@@ -1,9 +1,6 @@
 const fetch = require('node-fetch')
-const fs = require('fs')
-const path = require('path')
 
 const { TEST_STATUS, STATUS } = require('./constants')
-const getCookie = require('./getCookie')
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -18,13 +15,11 @@ const getSubmission = async (submissionId, cookie) =>
             return { testCases, state: json.status_id }
         })
 
-const poll = async submissionId => {
-    const cookie = await getCookie()
-
+const poll = async (loginCookies, submissionId) => {
     var prevState = STATUS.RUNNING
     var submission = {}
     while (prevState === STATUS.RUNNING) {
-        submission = await getSubmission(submissionId, cookie)
+        submission = await getSubmission(submissionId, loginCookies)
         const status = submission.testCases.map(x => `[ ${TEST_STATUS[x]}  ]`).join('')
         console.log('\x1Bc', status)
         prevState = submission.state
