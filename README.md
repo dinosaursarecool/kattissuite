@@ -4,42 +4,47 @@
 A helper suite to make it easier to run, test, and submit problems to Kattis
 
 ### Requirements
-* [python 3](https://www.python.org/)
-* [nodejs](https://nodejs.org/en/download/)
-* .kattisrc (download from https://open.kattis.com/download/kattisrc and add it to the project root)
+* [Node.js](https://nodejs.org/en/download/)
+* Download [.kattisrc](https://open.kattis.com/download/kattisrc) and add it to the project root
 
 ### Definitions
-**problem**: Kattis Problem ID
+* `problem`: Kattis Problem ID
+* `language`: Kattis language ID
+* `tag`: The tag listed in `langugages.json` for the given language
 
 ### Commands
 #### Initialize
 ```
-npm run init <problem> <language>
+npm run init <problem> <language|tag>
 ```
-fetches samples for the given problem and creates a new code file for that problem by copying **_\<your language\>__template._\<language extension\>_** file.
-The problem and language is saved in a local .json file for further use
+fetches samples for the given problem and creates a new code file for that problem by copying `<language>.<extension>` file.  
+The problem and language is saved in a local .json file for further use.
 #### Run tests
 ```
-npm run test [<problem>] [<language>]
+npm run test [<problem>] [<language|tag>]
 ```
-Runs the sample tests for the given problem. The problem and language here is **optional**, if nothing is given the saved problem and language from the initial stage will be used.
+Runs the sample tests for the given problem. The arguments here is **optional**, if nothing is given the saved problem and language from the initial stage will be used.
 #### Submit
 ```
-npm run submit [<problem>] [<language>]
+npm run submit [<problem>] [<language|tag>]
 ```
-Submits the given problem to Kattis and periodically polls the test results of the submission. The problem and language here is **optional**, if nothing is given the saved problem and language from the initial stage will be used.
+Submits the given problem to Kattis and periodically polls the test results of the submission. The arguments here is **optional**, if nothing is given the saved problem and language from the initial stage will be used.
 
 ### Template
-The template files are how the initial file will look like with the given language.
-These files are located at ```./utils/templates```. Simply modify these to your liking.
+The template files are how the initial file will look like with the given language. These files are located at `./utils/templates`. Modify these to your preferences.
 
+### Languages
+Every language in [Kattis](https://open.kattis.com/) is supported. If your language is not yet added in `languages.json` you can add it by follow the instructions below.
 
-### Add language
+#### Add language
 * Open up ```./languages.json```
 * It should look something like this
 ```javascript
 {
-    "c": {
+    "C": {
+        "tags": [
+            "c"
+        ],
         "fileExt": "c",
         "command": "./problem.exe",
         "compiler": {
@@ -52,21 +57,61 @@ These files are located at ```./utils/templates```. Simply modify these to your 
             ]
         }
     },
-    "node": {
+    "JavaScript (Node.js)": {
+        "tags": [
+            "node",
+            "js",
+            "javascript"
+        ],
         "fileExt": "js",
         "command": "node",
         "args": [
             "${problemFile}"
         ]
-    }
+    },
+    ...
 }
 ```
-Simply extend this file by adding a new language with the the given properties where ```"compiler"``` property is optional.
+* Extend the list by adding your language name from [Kattis](https://open.kattis.com/help) as the key for example:
+```javascript
+{
+    ...
+    "Python 3": {
+        
+    },
+    ...
+}
+```
+* Add the following properties to fit your needs
+    * Required properties:
+        * `tags`: Shortcut for identifying languages when using commands
+        * `fileExt`: The file extension your language uses
+        * `command`: The command used to execute the script with the given language
+    * Optional properties:
+        * `args`: The arguments for the command
+        * `compiler`: If the language require compiling before executing
+            * `command`: The command used compile the script
+            * `args`: The arguments for the compiler command
+Example:
+```javascript
+{
+    ...
+    "Python 3": {
+        "tags": [ "py", "python" ],
+        "command": "python",
+        "args": [
+            "${problemFile}"
+        ],
+    },
+    ...
+}
+```
+* Proceed to add a template for the new language
+
 #### Add template
-When a language has been added you need to add the template for the given Language.
-* Go to ```./utils/templates```
-* Create a new file ```<language>_template.<fileExt>```
-* Open up the created file and modify it to your liking
+* Go to `./utils/templates`
+* Create a new file `<language>.<fileExt>`. Example: `Python 3.py`
+* Open up the created file and modify it to your preferences
 
 #### Supported languages:
     '.c': 'C',
@@ -87,3 +132,8 @@ When a language has been added you need to add the template for the given Langua
     '.pl': 'Prolog',
     '.py': 'Python',
     '.rb': 'Ruby'
+
+
+### Variables reference
+* `${problemFile}`: The path to the given problem file
+* `${workspaceFolder}`: The path to the current workspace folder
