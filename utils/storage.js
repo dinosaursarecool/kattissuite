@@ -1,24 +1,36 @@
 const fs = require('fs')
 
-store = (items) => {
+store = (name, items) => {
+    save = true
+    if (!storedItems.hasOwnProperty(name))
+        storedItems[name] = {}
     Object.keys(items).forEach(key => {
-        items[key] = items[key]
-    });
-    const data = JSON.stringify(items)
-    fs.writeFileSync('./utils/storage.json', data)
+        storedItems[name][key] = items[key]
+    })
 }
 
-get = (key) => {
-    if (typeof items[key] !== 'undefined')
-        return items[key]
+get = (name, key = null) => {
+    if (storedItems.hasOwnProperty(name))
+        if (key == null)
+            return storedItems[name]
+        else if (storedItems[name].hasOwnProperty(key))
+            return storedItems[name][key]
     return null
 }
 
-let items = {}
+process.once('beforeExit', () => {
+    if (save) {
+        const data = JSON.stringify(storedItems)
+        fs.writeFileSync('./utils/storage.json', data)
+    }
+})
+
+let save = false
+let storedItems = {}
 try {
-    items = require('./storage.json')
+    storedItems = require('./storage.json')
 }
-catch (e) {}
+catch (e) { }
 
 module.exports = {
     store,

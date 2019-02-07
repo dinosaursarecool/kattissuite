@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const { PATHS } = require('./constants')
+const { PATHS, STORAGE_NAMES } = require('./constants')
 const log = require('./log')
 const getSampleData = require('./getSampleData')
 const storage = require('./storage')
@@ -11,7 +11,7 @@ const problem = settings.problem
 const problemExt = settings.fileExt
 const language = settings.language
 
-storage.store({
+storage.store(STORAGE_NAMES.ARGS, {
     'language': language,
     'problem': problem
 })
