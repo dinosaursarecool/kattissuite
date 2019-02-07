@@ -19,14 +19,21 @@ const TEST_STATUS = {
 }
 
 const PATHS = {
+    ROOT: path.join(__dirname, '..'),
     PROBLEMS: path.join(__dirname, '..', 'Problems'),
     ACCEPTED: path.join(__dirname, '..', 'Accepted'),
     TEMPLATES: path.join(__dirname, 'templates'),
     SAMPLE_DATA: path.join(__dirname, '..', 'SampleData'),
 }
 
+const STORAGE_NAMES = {
+    ARGS: 'args',
+    LANGUAGES: 'languages'
+}
+
 module.exports = {
     STATUS,
     TEST_STATUS,
-    PATHS
+    PATHS,
+    STORAGE_NAMES
 }
