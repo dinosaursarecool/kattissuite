@@ -1,5 +1,8 @@
 {
-    "c": {
+    "C": {
+        "tags": [
+            "c"
+        ],
         "fileExt": "c",
         "command": "./problem.exe",
         "compiler": {
@@ -12,7 +15,31 @@
             ]
         }
     },
-    "node": {
+    "C++": {
+        "tags": [
+            "c++",
+            "cc",
+            "cpp",
+            "cxx"
+        ],
+        "fileExt": "cpp",
+        "command": "./problem.exe",
+        "compiler": {
+            "command": "g++",
+            "args": [
+                "-g",
+                "${problemFile}",
+                "-o",
+                "${workspaceFolder}/problem.exe"
+            ]
+        }
+    },
+    "JavaScript (Node.js)": {
+        "tags": [
+            "node",
+            "js",
+            "javascript"
+        ],
         "fileExt": "js",
         "command": "node",
         "args": [
