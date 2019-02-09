@@ -4,8 +4,8 @@ const { TEST_STATUS, STATUS } = require('./constants')
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-const getSubmission = async (submissionId, cookie) =>
-    fetch(`https://open.kattis.com/submissions/${submissionId}?only_submission_row`, { headers: { cookie: cookie } })
+const getSubmission = (submissionId, cookie) => {
+    return fetch(`https://open.kattis.com/submissions/${submissionId}?only_submission_row`, { headers: { cookie: cookie } })
         .then(res => res.json())
         .then(json => {
             var testComponent = json.component
@@ -14,14 +14,16 @@ const getSubmission = async (submissionId, cookie) =>
 
             return { testCases, state: json.status_id }
         })
+}
 
 const poll = async (loginCookies, submissionId) => {
     var prevState = STATUS.RUNNING
     var submission = {}
-    while (prevState === STATUS.RUNNING) {
+    while (prevState <= STATUS.RUNNING) {
         submission = await getSubmission(submissionId, loginCookies)
         const status = submission.testCases.map(x => `[ ${TEST_STATUS[x]}  ]`).join('')
         console.log('\x1Bc', status)
+        console.log(`State: ${STATUS[submission.state]}`)
         prevState = submission.state
         await sleep(1000)
     }

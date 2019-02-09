@@ -1,10 +1,27 @@
 const path = require('path')
 
 const STATUS = {
+    1: 'New',
+    2: 'Waiting for compile',
+    3: 'Compiling',
+    4: 'Waiting for run',
     5: 'Running',
+    6: 'Judge Error',
+    7: 'Submission Error',
+    8: 'Compile Error',
+    9: 'Run Time Error',
+    10: 'Memory Limit Exceeded',
+    11: 'Output Limit Exceeded',
+    12: 'Time Limit Exceeded',
+    13: 'Illegal Function',
     14: 'Wrong answer',
-    16: 'Success',
-    RUNNING: 5,
+    15: 'Presentation Error',
+    16: 'Accepted',
+    NEW: 1,
+    WAITING_FOR_COMPILE: 2,
+    COMPILING: 3,
+    WAITING_FOR_RUN: 4,
+    RUNNING: 5
 }
 
 const TEST_STATUS = {
