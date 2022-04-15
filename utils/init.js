@@ -16,7 +16,7 @@ storage.store({
 	'problem': problem
 })
 
-const templateFileName = `${language}_template.${problemExt}`
+const templateFileName = `${language}.${problemExt}`
 const templatePath = path.join(PATHS.TEMPLATES, templateFileName)
 if (!fs.existsSync(templatePath)) log.error(`Could not find ${templatePath}`)
 

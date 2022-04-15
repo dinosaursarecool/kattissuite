@@ -1,7 +1,7 @@
 {
-    "c": {
+    "C": {
         "fileExt": "c",
-        "command": "./problem.exe",
+        "command": "${workspaceFolder}/problem.exe",
         "compiler": {
             "command": "gcc",
             "args": [
@@ -12,9 +12,183 @@
             ]
         }
     },
-    "node": {
+    "C#": {
+        "alias": ["cs"],
+        "fileExt": "cs",
+        "command": "${workspaceFolder}/problem.exe",
+        "compiler": {
+            "command": "gmcs",
+            "args": [
+                "-optimize+",
+                "-r:System.Numerics",
+                "${problemFile}",
+                "-o",
+                "${workspaceFolder}/problem.exe"
+            ]
+        }
+    },
+    "C++": {
+        "alias": ["cpp"],
+        "fileExt": "cpp",
+        "command": "${workspaceFolder}/problem.exe",
+        "compiler": {
+            "command": "g++",
+            "args": [
+                "g++",
+                "-g",
+                "-O2",
+                "-std=gnu++17",
+                "-static",
+                "${problemFile}",
+                "-o",
+                "${workspaceFolder}/problem.exe"
+            ]
+        }
+    },
+    "COBOL": {
+        "fileExt": "cob"
+    },
+    "F#": {
+        "fileExt": "fs"
+    },
+    "Go": {
+        "fileExt": "go",
+        "command": "go",
+        "args": [
+            "run",
+            "${problemFile}"
+        ]
+    },
+    "Haskell": {
+        "fileExt": "hs",
+        "command": "${workspaceFolder}/problem.exe",
+        "compiler": {
+            "command": "ghc",
+            "args": [
+                "+RTS",
+                "-K8m",
+                "-RTS",
+                "${problemFile}",
+                "-o",
+                "${workspaceFolder}/problem.exe"
+            ]
+        }
+    },
+    "Java": {
+        "fileExt": "java",
+        "command": "java",
+        "args": [
+            "${problemFile}"
+        ]
+    },
+    "Node.js": {
         "fileExt": "js",
         "command": "node",
+        "args": [
+            "${problemFile}"
+        ]
+    },
+    "SpiderMonkey": {
+        "fileExt": "js",
+        "command": "js24",
+        "args": [
+            "${problemFile}"
+        ]
+    },
+    "Kotlin": {
+        "fileExt": "kt",
+        "command": "java",
+        "args": [
+            "-jar",
+            "${workspaceFolder}/problem.exe"
+        ],
+        "compiler": {
+            "command": "kotlinc",
+            "args": [
+                "${problemFile}",
+                "-include-runtime",
+                "-d",
+                "${workspaceFolder}/problem.exe"
+            ]
+        }
+    },
+    "Common Lisp": {
+        "fileExt": "lisp"
+    },
+    "Objective-C": {
+        "fileExt": "m"
+    },
+    "OCaml": {
+        "fileExt": "ml",
+        "command": "ocaml",
+        "args": [
+            "${problemFile}"
+        ]
+    },
+    "Pascal": {
+        "fileExt": "pas",
+        "command": "${workspaceFolder}/problem.exe",
+        "compiler": {
+            "command": "fpc",
+            "args": [
+                "${problemFile}",
+                "-o",
+                "${workspaceFolder}/problem.exe"
+            ]
+        }
+    },
+    "PHP": {
+        "fileExt": "php",
+        "command": "php",
+        "args": [
+            "${problemFile}"
+        ]
+    },
+    "Prolog": {
+        "fileExt": "pl",
+        "command": "swipl",
+        "args": [
+            "${problemFile}"
+        ]
+    },
+    "Python 2": {
+        "alias": ["python", "py2", "py"],
+        "fileExt": "py",
+        "command": "python",
+        "args": [
+            "${problemFile}"
+        ]
+    },
+    "Python 3": {
+        "alias": ["py3"],
+        "fileExt": "py",
+        "command": "python3",
+        "args": [
+            "${problemFile}"
+        ]
+    },
+    "Ruby": {
+        "fileExt": "rb",
+        "command": "ruby",
+        "args": [
+            "${problemFile}"
+        ]
+    },
+    "Rust": {
+        "fileExt": "rs",
+        "command": "${workspaceFolder}/program.exe",
+        "compiler": {
+            "command": "rustc",
+            "args": [
+                "${problemFile}",
+                "-o",
+                "${workspaceFolder}/problem.exe"
+            ]
+        }
+    },
+    "Scala": {
+        "fileExt": "scala",
+        "command": "scala",
         "args": [
             "${problemFile}"
         ]
