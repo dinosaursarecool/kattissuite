@@ -38,8 +38,10 @@ const runTests = async (command, args, sampleData) => {
         child.stdin.end(testCase)
 
         let output = ''
+        child.stderr.on('data', data => {
+            process.stdout.write(`\x1B[31m${data}\x1B[0m`)
+        })
         for await (const data of child.stdout) output += data.toString()
-
         result['output'] = normalizeNewline(output)
         result['expectedOutput'] = normalizeNewline(expectedOutput)
 
