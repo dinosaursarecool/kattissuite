@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-store = (items) => {
+const store = (items) => {
 	Object.keys(items).forEach(key => {
 		items[key] = items[key]
 	})
@@ -8,7 +8,7 @@ store = (items) => {
 	fs.writeFileSync('./utils/storage.json', data)
 }
 
-get = (key) => {
+const get = (key) => {
 	if (typeof items[key] !== 'undefined')
 		return items[key]
 	return null
