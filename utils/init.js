@@ -12,8 +12,8 @@ const problemExt = settings.fileExt
 const language = settings.language
 
 storage.store({
-    'language': language,
-    'problem': problem
+	'language': language,
+	'problem': problem
 })
 
 const templateFileName = `${language}_template.${problemExt}`
@@ -22,8 +22,8 @@ if (!fs.existsSync(templatePath)) log.error(`Could not find ${templatePath}`)
 
 const problemPath = path.join(PATHS.PROBLEMS, `${problem}.${problemExt}`)
 if (!fs.existsSync(problemPath))
-    fs.copyFileSync(templatePath, problemPath)
+	fs.copyFileSync(templatePath, problemPath)
 else
-    log.notice(`Problem \'${problem}\' already exists`);
+	log.notice(`Problem '${problem}' already exists`)
 
 getSampleData(problem)
