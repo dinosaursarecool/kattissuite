@@ -1,6 +1,4 @@
 const fetch = require('node-fetch')
-const fs = require('fs')
-const path = require('path')
 
 const { TEST_STATUS, STATUS } = require('./constants')
 const getCookie = require('./getCookie')
