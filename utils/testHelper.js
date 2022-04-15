@@ -65,7 +65,7 @@ const start = () => {
 
 	const problemFile = path.join(PATHS.PROBLEMS, `${problem}.${problemExt}`)
 	if (!fs.existsSync(problemFile)) {
-		log.warn(`Selected problem \'${problem}.${problemExt}\' does not exist`)
+		log.warn(`Selected problem '${problem}.${problemExt}' does not exist`)
 		return
 	}
 	parseList(settings, { 'problemFile': problemFile, 'workspaceFolder': process.cwd() })

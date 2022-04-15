@@ -18,7 +18,7 @@ if (settings.language == null)
 	log.error('Language input not found')
 
 if (typeof languages[settings.language] === 'undefined')
-	log.error(`Selected language \'${lang}\' does not exist`)
+	log.error(`Selected language '${lang}' does not exist`)
 
 Object.keys(languages[settings.language]).forEach(key => {
 	settings[key] = languages[settings.language][key]
@@ -26,7 +26,7 @@ Object.keys(languages[settings.language]).forEach(key => {
 
 MUST_HAVE_KEYS.forEach(key => {
 	if (!settings.hasOwnProperty(key))
-		log.error(`Invalid syntax in \'languages.json\' at \'${settings.language}\' language, could not find \'${key}\' property`)
+		log.error(`Invalid syntax in 'languages.json' at '${settings.language}' language, could not find '${key}' property`)
 })
 
 module.exports = settings

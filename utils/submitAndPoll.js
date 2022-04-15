@@ -27,7 +27,7 @@ const run = async () => {
 
 	const problemPath = path.join(PATHS.PROBLEMS, `${problem}.${problemExt}`)
 	if (!fs.existsSync(problemPath)) {
-		log.warn(`Selected problem \'${problem}.${problemExt}\' does not exist`)
+		log.warn(`Selected problem '${problem}.${problemExt}' does not exist`)
 		return
 	}
 
