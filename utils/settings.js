@@ -18,7 +18,7 @@ if (settings.language == null)
 	log.error('Language input not found')
 
 if (typeof languages[settings.language] === 'undefined')
-	log.error(`Selected language '${lang}' does not exist`)
+	log.error(`Selected language '${settings.language}' does not exist`)
 
 Object.keys(languages[settings.language]).forEach(key => {
 	settings[key] = languages[settings.language][key]
