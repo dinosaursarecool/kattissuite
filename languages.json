@@ -34,7 +34,6 @@
         "compiler": {
             "command": "g++",
             "args": [
-                "g++",
                 "-g",
                 "-O2",
                 "-std=gnu++17",
