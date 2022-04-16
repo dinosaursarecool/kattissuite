@@ -6,10 +6,10 @@ const getCookie = require('./getCookie')
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 const getSubmission = async (submissionId, cookie) =>
-	fetch(`https://open.kattis.com/submissions/${submissionId}?only_submission_row`, { headers: { cookie: cookie } })
+	fetch(`https://open.kattis.com/submissions/${submissionId}?json`, { headers: { cookie: cookie } })
 		.then(res => res.json())
 		.then(json => {
-			var testComponent = json.component
+			var testComponent = json.row_html.trim()
 			var htmlTestCases = testComponent.split('Test case ').slice(1)
 			var testCases = htmlTestCases.map(x => x.split('">')[0].split(': ')[1])
 
