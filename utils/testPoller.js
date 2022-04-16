@@ -21,7 +21,7 @@ const poll = async submissionId => {
 
 	var prevState = STATUS.RUNNING
 	var submission = {}
-	while (prevState === STATUS.RUNNING) {
+	while (prevState <= STATUS.RUNNING) {
 		submission = await getSubmission(submissionId, cookie)
 		const status = submission.testCases.map(x => `[ ${TEST_STATUS[x]}  ]`).join('')
 		console.log('\x1Bc', status)
